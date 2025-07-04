@@ -88,7 +88,7 @@ class TPCalculator_Calcs {
 
     function htmlWithCalcs(){
         $html = "";
-        $baseTP = $this->calcTP();
+        $baseTP = round($this->calcTP(), 2);
 
         $html .= "<b>" . $baseTP . "</b> TP per hit.<br>";
         $html .= "<b>" . $this->hitsPer1K($baseTP) . "</b> total hits for 1k TP.";
