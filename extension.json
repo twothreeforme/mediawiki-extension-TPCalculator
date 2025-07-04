@@ -1,0 +1,49 @@
+{
+	"name": "TPCalculator",
+	"version": "1.0",
+	"author": [
+		"Shocks"
+	],
+	"url": "https://github.com/twothreeforme/mediawiki-extension-TPCalculator",
+	"descriptionmsg": "Adds <TPCalculator /> tag",
+	"license-name": "MIT",
+	"type": "ffxi_module",
+	"requires": {
+		"MediaWiki": ">= 1.25.0",
+        "platform": {
+            "php": ">= 5.6"
+        }
+	},
+	"AutoloadClasses": {
+		"TPCalculator": "TPCalculator.php",
+        "TPCalculator_Calcs": "TPCalculator_Calcs.php",
+        "APIModule_TPCalculator": "APIModule_TPCalculator.php"
+	},
+    "MessagesDirs": {
+		"TPCalculator": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.TPCalculator": {
+			"localBasePath": "",
+			"remoteExtPath": "TPCalculator",
+			"packageFiles": [
+                "js/tpcalc.js",
+                "js/TPCalculator_ActionAPI.js"
+			],
+			"styles": [
+                "style/tpcalc.css"
+			]
+		}
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "TPCalculator::onParserInit"
+	},
+    "APIModules": {
+		"tpcalculator": {
+			"class": "APIModule_TPCalculator"
+		}
+    },
+	"manifest_version": 1
+}

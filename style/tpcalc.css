@@ -1,0 +1,68 @@
+#TPCalculator_form {
+  width: 310px !important;
+  box-shadow: 0px 0px 15px rgba(128, 128, 128, 0.5);
+  /* background-color: aquamarine; */
+  border-radius: 20px;
+  border: 1px solid #1f1f1f30;
+  padding: 5px 20px 0px 20px;
+}
+
+.TPCalculator_form_title{
+  color: #1f1f1fe3;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 24px;
+  margin: unset;
+  text-align: center;
+  font-weight: bold;
+}
+
+.TPCalculator_table {
+    
+}
+
+.TPCalculator_customButton {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    padding: 0 16px;
+    background-color: #3586ff;
+    border-radius: 0.25rem;
+    border: 1px solid #3586ff;
+    color: #fff;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.TPCalculator_customButton:hover {
+    background-color: #005fb2;
+    border-color: #005fb2;
+}
+
+.TPCalculator_customButton:disabled,
+.TPCalculator_customButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.TPCalculator_textinput {
+    display: inline-block;
+    width: 18%;
+    line-height: 20px;
+    height: 22px;
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    background-color: #fff;
+    color: rgb(8, 7, 7);
+    transition: border .1s linear,background-color .1s linear;
+}
+
+.TPCalculator_textinput:focus{
+    border-color: #1b96ff;
+    color: var(--sds-c-input-text-color-focus);
+    box-shadow: rgb(1, 118, 211) 0px 0px 3px 0px;
+}
+

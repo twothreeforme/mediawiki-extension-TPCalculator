@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Shocks"
+		]
+	},
+	"tpcalculator": "tpcalculator",
+	"tpcalculator-desc": "Tool to calculate TP",
+	"tpcalculator-title": "tpcalculator",
+	"tpcalculator-summary": "Tool to calculate TP",
+	"group-tpcalculatorrole": "",
+	"group-tpcalculatorrole-member": "",
+	"grouppage-tpcalculatorrole": "",
+	"action-tpcalculator": "",
+	"right-tpcalculator": ""
+}
