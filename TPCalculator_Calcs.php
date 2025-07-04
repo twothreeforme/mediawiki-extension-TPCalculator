@@ -73,7 +73,7 @@ class TPCalculator_Calcs {
             $tpph *= 1 + ( $stp / 100 );
         }
 
-        return $tpph;
+        return floor($tpph);
     }
     
     function hitsPer1K($tp){
@@ -88,7 +88,7 @@ class TPCalculator_Calcs {
 
     function htmlWithCalcs(){
         $html = "";
-        $baseTP = round($this->calcTP(), 2);
+        $baseTP = $this->calcTP();
 
         $html .= "<b>" . $baseTP . "</b> TP per hit.<br>";
         $html .= "<b>" . $this->hitsPer1K($baseTP) . "</b> total hits for 1k TP.";
