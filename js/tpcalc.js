@@ -9,6 +9,12 @@ tpcalc_submit.addEventListener("click", (e) =>  {
     else API.actionAPI(getTPCalcParams(), tpcalc_submit_callback);
 });
 
+const tpcalc_isH2H = document.getElementById("TPCalculator_isH2H");
+tpcalc_isH2H.addEventListener("click", (e) =>  {
+    let div = document.getElementById("TPCalculator_delay_showH2H");
+    div.classList.toggle("TPCalculator_delay_showH2H_expanded");
+});
+
 const inputFields = document.getElementsByClassName("TPCalculator_textinput");
 // https://stackoverflow.com/questions/70806083/how-to-preview-the-result-of-a-beforeinput-event/70806297#70806297
 Array.from(inputFields).forEach((button) => {

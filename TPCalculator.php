@@ -30,11 +30,16 @@ class TPCalculator {
 					"<p class=\"TPCalculator_form_title\">TP Calculator</p>" .
                     "<table class=\"TPCalculator_table\"><tbody>" .
                         "<tr>
-                            <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_single\">Delay (single wield) </td>
+                            <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_single\">* Delay (main) <input id=\"TPCalculator_isH2H\" type=\"checkbox\"> is H2H weapon</input>
+							</td>
                         </tr>" .
-                        // "<tr>
-                        //     <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_dual\">(not required) Delay (dual wield)</td>
-                        // </tr>" . 
+                        "<tr>
+                            <td>
+							<div id=\"TPCalculator_delay_showH2H\" class=\"TPCalculator_delay_showH2H\">
+								<input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_dual\">Delay (sub)
+							</div>
+							</td>
+                        </tr>" . 
                         "<tr>
                             <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_storetp\">Store TP from gear</td>
 						</tr>" . 
@@ -42,7 +47,8 @@ class TPCalculator {
 							<td><button id=\"TPCalculator_calc\" class=\"TPCalculator_customButton\">Calculate</button></td>
 						</tr>" . 
 						"<tr>
-							<td><p id=\"TPCalculator_calc_output\"></p></td>
+							<td><p><i>* required</i></p><br>
+								<p id=\"TPCalculator_calc_output\"></p></td>
 						</tr>" . 
 					"</tbody></table>
 				</div>";
