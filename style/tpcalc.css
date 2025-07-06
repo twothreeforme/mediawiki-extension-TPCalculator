@@ -1,5 +1,5 @@
 #TPCalculator_form {
-  width: 310px !important;
+  width: 325px !important;
   box-shadow: 0px 0px 15px rgba(128, 128, 128, 0.5);
   /* background-color: aquamarine; */
   border-radius: 20px;
@@ -17,7 +17,7 @@
 }
 
 .TPCalculator_table {
-    
+    margin: 15px 5px 5px 5px;
 }
 
 .TPCalculator_customButton {
@@ -66,13 +66,117 @@
   box-shadow: rgb(1, 118, 211) 0px 0px 3px 0px;
 }
 
-.TPCalculator_delay_showH2H {
-  height: 50px;
-  background: #0084ffcc;
+.TPCalculator_delayType {
+  /* height: 50px; */
+  display: block;
+  overflow: auto;
+  /* background: #0084ff90; */
   padding: 0px 0px 0px 0px;
-  transition: width 0.5s;
+  opacity: 1;
+  transition: all 0.5s ease;
 }
 
-.TPCalculator_delay_showH2H_expanded {
-  height: 150px;
+.TPCalculator_form_is {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+#TPCalculator_form_isDual input#TPCalculator_delay_dual {
+  margin-bottom: 4px; 
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+
+.TPCalculator_three-state-switch input[type="radio"],
+.TPCalculator_three-state-switch input[type="checkbox"]{
+  display: none;
+  cursor: pointer;
+}
+
+.TPCalculator_three-state-switch input[type="radio"]:not(:is(:checked)) + label {
+  color: rgb(0, 0, 0);
+  transition: color .5s ease-out;
+}
+
+.TPCalculator_three-state-switch input[type="radio"]:is(:checked) + label {
+  color: white;
+  transition: color .5s ease-out;
+}
+
+/* overwriting MediaWiki */
+.TPCalculator_three-state-switch p {
+  margin: 0px;
+}
+
+.TPCalculator_three-state-switch label
+{
+  cursor: pointer;
+  font-size: 0.85em;
+  margin: 0px;
+  z-index: 1;
+  position: relative;
+  font-weight: 400;
+}
+
+.TPCalculator_three-state-switch label[for="TPCalculator_three-state-switch_radio1"]
+{
+  padding-left: 12px;
+}
+
+.TPCalculator_three-state-switch label[for="TPCalculator_three-state-switch_radio2"]
+{
+  padding-left: 30px;
+}
+
+.TPCalculator_three-state-switch label[for="TPCalculator_three-state-switch_radio3"]
+{
+  padding-right: 5px;
+  padding-left: 25px;
+}
+
+
+.TPCalculator_three-state-switch
+{
+  position: relative;
+  height:25px;
+  display:flex;
+  justify-content:space-around;
+}
+
+.TPCalculator_three-state-switch::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 34%;
+  height: 100%;
+  background: #3586ff; 
+  /* border: 2px solid #36c; */
+  border-radius: 0.25rem; 
+  /* opacity: .5; */
+  transition: all .5s ease-out;
+}
+
+.TPCalculator_three-state-switch:has(#TPCalculator_three-state-switch_radio1:checked)::before{
+  left: 0%;
+}
+.TPCalculator_three-state-switch:has(#TPCalculator_three-state-switch_radio2:checked)::before{
+  left: 33%;
+}
+.TPCalculator_three-state-switch:has(#TPCalculator_three-state-switch_radio3:checked)::before{
+  left: 66%;
+}
+
+.superscript { 
+  position: relative; 
+  top: -0.5em; 
+  font-size: 80%; 
+  font-style: italic;
 }

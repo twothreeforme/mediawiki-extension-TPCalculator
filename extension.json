@@ -30,7 +30,8 @@
 			"remoteExtPath": "TPCalculator",
 			"packageFiles": [
                 "js/tpcalc.js",
-                "js/TPCalculator_ActionAPI.js"
+                "js/TPCalculator_ActionAPI.js",
+                "js/toggleswitch.js"
 			],
 			"styles": [
                 "style/tpcalc.css"

@@ -1,4 +1,5 @@
 var API = require("./TPCalculator_ActionAPI.js");
+var ToggleSwitch = require("./toggleswitch.js");
 
 const tpcalc_submit = document.getElementById("TPCalculator_calc");
 tpcalc_submit.addEventListener("click", (e) =>  {
@@ -9,11 +10,7 @@ tpcalc_submit.addEventListener("click", (e) =>  {
     else API.actionAPI(getTPCalcParams(), tpcalc_submit_callback);
 });
 
-const tpcalc_isH2H = document.getElementById("TPCalculator_isH2H");
-tpcalc_isH2H.addEventListener("click", (e) =>  {
-    let div = document.getElementById("TPCalculator_delay_showH2H");
-    div.classList.toggle("TPCalculator_delay_showH2H_expanded");
-});
+ToggleSwitch.setup();
 
 const inputFields = document.getElementsByClassName("TPCalculator_textinput");
 // https://stackoverflow.com/questions/70806083/how-to-preview-the-result-of-a-beforeinput-event/70806297#70806297
@@ -29,12 +26,18 @@ Array.from(inputFields).forEach((button) => {
 });
 
 function getTPCalcParams(){
+    let isH2H = false;
+    let H2Hradio = document.getElementById("TPCalculator_three-state-switch_radio3");
+    if ( H2Hradio && H2Hradio.checked ) isH2H = true;
+    
     return {
         action: "tpcalculator",
         delay_single:document.getElementById("TPCalculator_delay_single").value,
-        //delay_dual:document.getElementById("TPCalculator_delay_dual").value,
-        storetp:document.getElementById("TPCalculator_storetp").value
-       
+        delay_dual:document.getElementById("TPCalculator_delay_dual").value, 
+        dual_wield:document.getElementById("TPCalculator_delay_DW").value, 
+        traits:document.getElementById("TPCalculator_delay_traits").value, 
+        storetp:document.getElementById("TPCalculator_storetp").value,
+        H2H:isH2H,
     };
 }
 

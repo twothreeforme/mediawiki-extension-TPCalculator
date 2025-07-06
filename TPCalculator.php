@@ -28,16 +28,17 @@ class TPCalculator {
 		// http://www.evil-kitty.com/tpcalc/
 		$html = "<div id=\"TPCalculator_form\">" .
 					"<p class=\"TPCalculator_form_title\">TP Calculator</p>" .
-                    "<table class=\"TPCalculator_table\"><tbody>" .
+                    self::toggleSwitch() .
+					"<table class=\"TPCalculator_table\"><tbody>" .
                         "<tr>
-                            <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_single\">* Delay (main) <input id=\"TPCalculator_isH2H\" type=\"checkbox\"> is H2H weapon</input>
+                            <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_single\">* Delay (main weapon)
 							</td>
                         </tr>" .
                         "<tr>
-                            <td>
-							<div id=\"TPCalculator_delay_showH2H\" class=\"TPCalculator_delay_showH2H\">
-								<input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_dual\">Delay (sub)
-							</div>
+                            <td>" . 
+							"<div id=\"TPCalculator_delayType\" class=\"TPCalculator_delayType hidden\" >" . 
+								self::_isDual() . self::_isH2H() .
+							"</div>
 							</td>
                         </tr>" . 
                         "<tr>
@@ -53,6 +54,33 @@ class TPCalculator {
 					"</tbody></table>
 				</div>";
         return $html;        
+	}
+
+	public static function toggleSwitch(){
+		return "<div class=\"TPCalculator_three-state-switch\">
+					<input type=\"radio\" id=\"TPCalculator_three-state-switch_radio1\" name=\"radio\" checked/>
+					<label for=\"TPCalculator_three-state-switch_radio1\">Single Wield</label>
+
+					<input type=\"radio\" id=\"TPCalculator_three-state-switch_radio2\" name=\"radio\"/>
+					<label for=\"TPCalculator_three-state-switch_radio2\">Dual Wield</label>
+
+					<input type=\"radio\" id=\"TPCalculator_three-state-switch_radio3\" name=\"radio\"/>
+					<label for=\"TPCalculator_three-state-switch_radio3\">Hand-to-Hand</label>
+				</div>";
+	}
+
+	public static function _isDual(){
+		return "<div id=\"TPCalculator_form_isDual\" class=\"TPCalculator_form_is hidden\">" .
+				"<input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_dual\">Delay (sub weapon)<br>" . 
+				"<input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_DW\">DW %" .
+				"</div>";
+	}
+
+		public static function _isH2H(){
+		return "<div id=\"TPCalculator_form_isH2H\" class=\"TPCalculator_form_is hidden\">" .
+				"<input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_traits\">Delay (from player traits)<br>" .
+				"<span class=\"superscript\">480 used as default when left blank</span>". 
+				"</div>";
 	}
 
 	// public static function onParserAfterTidy( Parser &$parser, &$text ) {
