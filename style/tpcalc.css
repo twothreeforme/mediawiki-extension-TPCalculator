@@ -111,10 +111,17 @@
   transition: color .5s ease-out;
 }
 
-/* overwriting MediaWiki */
+/***********************************
+overwriting MediaWiki styles
+****************/
 .TPCalculator_three-state-switch p {
   margin: 0px;
 }
+
+.TPCalculator_table p {
+  margin: 0px;
+}
+/***********************************/
 
 .TPCalculator_three-state-switch label
 {

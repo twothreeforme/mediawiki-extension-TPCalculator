@@ -31,7 +31,8 @@ class TPCalculator {
                     self::toggleSwitch() .
 					"<table class=\"TPCalculator_table\"><tbody>" .
                         "<tr>
-                            <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_single\">* Delay (main weapon)
+                            <td>
+								<input class=\"TPCalculator_textinput\" id=\"TPCalculator_delay_single\">Delay (main weapon)<span class=\"superscript\">required</span>
 							</td>
                         </tr>" .
                         "<tr>
@@ -48,8 +49,7 @@ class TPCalculator {
 							<td><button id=\"TPCalculator_calc\" class=\"TPCalculator_customButton\">Calculate</button></td>
 						</tr>" . 
 						"<tr>
-							<td><p><i>* required</i></p><br>
-								<p id=\"TPCalculator_calc_output\"></p></td>
+							<td><p id=\"TPCalculator_calc_output\"></p></td>
 						</tr>" . 
 					"</tbody></table>
 				</div>";
