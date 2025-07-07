@@ -3,6 +3,9 @@ var ToggleSwitch = require("./toggleswitch.js");
 
 const tpcalc_submit = document.getElementById("TPCalculator_calc");
 tpcalc_submit.addEventListener("click", (e) =>  {
+    let output = document.getElementById("TPCalculator_calc_output");
+    output.innerHTML = "Loading...";
+
     let delay = document.getElementById("TPCalculator_delay_single").value;
     if ( delay == "" || delay == 0 ){
         mw.notify( 'Delay must be > 0', { autoHide: true,  type: 'error' } ); 

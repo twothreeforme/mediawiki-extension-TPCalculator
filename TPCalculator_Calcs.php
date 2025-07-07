@@ -27,7 +27,7 @@ class TPCalculator_Calcs {
         else return $this->storetp; 
     }
     private function getDelay_traits(): int{ 
-        if ( is_null($this->delay_traits) || $this->delay_traits < 0  ) return 480;
+        if ( is_null($this->delay_traits) || $this->delay_traits <= 0  ) return 480;
         else return $this->delay_traits; 
     }
     private function getIsH2H(): bool{ return $this->isH2H; }
@@ -45,11 +45,14 @@ class TPCalculator_Calcs {
     }
 
     private function getDelay(): int{
-        
+
         $delay = $this->getTrueDelay( $this->getDelay_single() );
         $delaySUB = $this->getTrueDelay( $this->getDelay_dual() );
         if ( $delaySUB > 0 ){
             $delay = (( $delay + $delaySUB ) * ( 1 - ( $this->getDW() / 100 )) ) / 2 ;
+        }
+        if ( $this->getIsH2H() === true ) {
+            $delay += $this->getDelay_traits();
         }
 
         return floor($delay);
@@ -60,35 +63,18 @@ class TPCalculator_Calcs {
         $delay = $this->getDelay();
         $tpph = null;
 
-        if ( $this->getIsH2H() === false ) {
-            if ($delay > 530) {
-                $tpph = (14.5 + ((( $delay - 530) * 3.5) / 470)) * 10;
-            } elseif ($delay >= 480) {
-                $tpph = (13.0 + ((( $delay - 480) * 1.5) / 50)) * 10;
-            } elseif ($delay >= 450) {
-                $tpph = (11.5 + ((( $delay - 450) * 1.5) / 30)) * 10;
-            } elseif ($delay >= 180) {
-                $tpph = (5.0 + ((( $delay - 180) * 6.5) / 270)) * 10;
-            } else {
-                $tpph = (5.0 + ((( $delay - 180) * 1.5) / 180)) * 10;
-            }
-            // $tpph = round($tpph, 0);
+        if ($delay > 530) {
+            $tpph = (14.5 + ((( $delay - 530) * 3.5) / 470)) * 10;
+        } elseif ($delay >= 480) {
+            $tpph = (13.0 + ((( $delay - 480) * 1.5) / 50)) * 10;
+        } elseif ($delay >= 450) {
+            $tpph = (11.5 + ((( $delay - 450) * 1.5) / 30)) * 10;
+        } elseif ($delay >= 180) {
+            $tpph = (5.0 + ((( $delay - 180) * 6.5) / 270)) * 10;
         } else {
-            
-            $delay += $this->getDelay_traits();
-
-            if ($delay >= 530) {
-                $tpph = (14.5 + ((( $delay - 50) * 3.5) / 470) - 14.18) * 10;
-            } else {
-                if ($delay > 480) {
-                    $tpph = (13.0 + (($delay * 1.5) / 50) - 13.05) * 10;
-                } else {
-                    $tpph = 0;
-                }
-            }
-            // $tpph = round($tpph, 0);
-            //$tpph = "+" . $tpph;
+            $tpph = (5.0 + ((( $delay - 180) * 1.5) / 180)) * 10;
         }
+        // $tpph = round($tpph, 0);
 
         $stp = $this->getStoreTP();
         if ( $stp > 0 ){
