@@ -17,15 +17,11 @@ class TPCalculator {
 		$parser->getOutput()->updateCacheExpiry(0);
 		$parser->getOutput()->addModules(['ext.TPCalculator']);
 
-		$divContents = "Good to go";
-
 		$html = self::calcHTML();
-
 		return 	$html;
 	}
 
 	public static function calcHTML(){
-		// http://www.evil-kitty.com/tpcalc/
 		$html = "<div id=\"TPCalculator_form\">" .
 					"<p class=\"TPCalculator_form_title\">TP Calculator</p>" .
                     self::toggleSwitch() .
@@ -82,13 +78,5 @@ class TPCalculator {
 				"<span class=\"superscript\">480 used as default when left blank</span>". 
 				"</div>";
 	}
-
-	// public static function onParserAfterTidy( Parser &$parser, &$text ) {
-	// 	return true;
-	// }
-
-	// public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-	// 	return true;
-	// }
 
 }

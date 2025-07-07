@@ -74,7 +74,6 @@ class TPCalculator_Calcs {
         } else {
             $tpph = (5.0 + ((( $delay - 180) * 1.5) / 180)) * 10;
         }
-        // $tpph = round($tpph, 0);
 
         $stp = $this->getStoreTP();
         if ( $stp > 0 ){
