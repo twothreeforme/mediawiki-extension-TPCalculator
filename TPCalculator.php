@@ -39,7 +39,7 @@ class TPCalculator {
 							</td>
                         </tr>" . 
                         "<tr>
-                            <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_storetp\">Store TP from gear</td>
+                            <td><input class=\"TPCalculator_textinput\" id=\"TPCalculator_storetp\">Store TP</td>
 						</tr>" . 
 						"<tr>
 							<td><button id=\"TPCalculator_calc\" class=\"TPCalculator_customButton\">Calculate</button></td>
